@@ -139,7 +139,8 @@ export default function PersonalQuestions() {
               label={
                 index +
                 1 +
-                " "(index === 0 ? notAtAll[lan] : "") +
+                " " +
+                (index === 0 ? notAtAll[lan] : "") +
                 (index === 6 ? veryMuch[lan] : "")
               }
             />
@@ -166,7 +167,8 @@ export default function PersonalQuestions() {
               label={
                 index +
                 1 +
-                " "(index === 0 ? notAtAll[lan] : "") +
+                " " +
+                (index === 0 ? notAtAll[lan] : "") +
                 (index === 6 ? veryMuch[lan] : "")
               }
             />
@@ -193,7 +195,8 @@ export default function PersonalQuestions() {
               label={
                 index +
                 1 +
-                " "(index === 0 ? veryDifficult[lan] : "") +
+                " " +
+                (index === 0 ? veryDifficult[lan] : "") +
                 (index === 6 ? veryEasy[lan] : "")
               }
             />
@@ -220,7 +223,8 @@ export default function PersonalQuestions() {
               label={
                 index +
                 1 +
-                " "(index === 0 ? notAtAll[lan] : "") +
+                " " +
+                (index === 0 ? notAtAll[lan] : "") +
                 (index === 6 ? continuously[lan] : "")
               }
             />
