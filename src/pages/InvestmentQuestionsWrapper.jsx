@@ -47,7 +47,7 @@ export default function InvestmentQuestionsWrapper() {
   if (lan === "") return null;
 
   return (
-    <Box sx={{ margin: "auto", width: "50%" }}>
+    <Box>
       <Typography variant="h6" sx={{ mb: 2 }}>
         {month[lan]} {currentMonth + 1} / {months}
       </Typography>
