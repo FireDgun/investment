@@ -56,7 +56,7 @@ export default function PersonalQuestions() {
   if (lan === "" && type === "") return null;
 
   return (
-    <Box sx={{ margin: 4, display: "flex", flexDirection: "column" }}>
+    <Box sx={{ margin: 4, display: "flex", flexDirection: "column", gap: 2 }}>
       <Typography variant="h5">{surveyIntroduction[lan]}</Typography>
 
       {/* Gender Question */}
@@ -107,14 +107,32 @@ export default function PersonalQuestions() {
           value={formData.stockMarketExperience}
           onChange={handleChange("stockMarketExperience")}
         >
-          <FormControlLabel value="1" control={<Radio />} label={never[lan]} />
-          <FormControlLabel value="2" control={<Radio />} />
-          <FormControlLabel value="3" control={<Radio />} />
-          <FormControlLabel value="4" control={<Radio />} />
+          <FormControlLabel
+            value="1"
+            control={<Radio />}
+            label={never[lan]}
+            labelPlacement="bottom"
+          />
+          <FormControlLabel
+            value="2"
+            control={<Radio />}
+            labelPlacement="bottom"
+          />
+          <FormControlLabel
+            value="3"
+            control={<Radio />}
+            labelPlacement="bottom"
+          />
+          <FormControlLabel
+            value="4"
+            control={<Radio />}
+            labelPlacement="bottom"
+          />
           <FormControlLabel
             value="5"
             control={<Radio />}
             label={allTheTime[lan]}
+            labelPlacement="bottom"
           />
         </RadioGroup>
       </FormControl>
@@ -136,6 +154,7 @@ export default function PersonalQuestions() {
               key={index}
               value={index + 1}
               control={<Radio />}
+              labelPlacement="bottom"
               label={
                 index +
                 1 +
@@ -164,6 +183,7 @@ export default function PersonalQuestions() {
               key={index}
               value={index + 1}
               control={<Radio />}
+              labelPlacement="bottom"
               label={
                 index +
                 1 +
@@ -192,6 +212,7 @@ export default function PersonalQuestions() {
               key={index}
               value={index + 1}
               control={<Radio />}
+              labelPlacement="bottom"
               label={
                 index +
                 1 +
@@ -220,6 +241,7 @@ export default function PersonalQuestions() {
               key={index}
               value={index + 1}
               control={<Radio />}
+              labelPlacement="bottom"
               label={
                 index +
                 1 +

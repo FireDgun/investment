@@ -71,8 +71,8 @@ export default function Dashboard() {
       width: 140,
     })),
     ...Array.from({ length: 12 }, (_, i) => ({
-      field: `spIndex${i + 1}`,
-      headerName: `SP Index ${i + 1}`,
+      field: `index${i + 1}`,
+      headerName: `Index ${i + 1}`,
       width: 140,
     })),
   ];
@@ -95,7 +95,7 @@ export default function Dashboard() {
       "isCorrectReadingAnswer2",
       "readingAnswer2",
       ...Array.from({ length: 12 }, (_, i) => `riskFree${i + 1}`),
-      ...Array.from({ length: 12 }, (_, i) => `spIndex${i + 1}`),
+      ...Array.from({ length: 12 }, (_, i) => `index${i + 1}`),
     ];
 
     // Map data to the specified order

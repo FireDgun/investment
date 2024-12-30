@@ -34,13 +34,11 @@ export const questions = {
     spanish: "¿Ha invertido de forma independiente en bolsa en el pasado?",
   },
   prideAsAmerican: {
-    english:
-      "To what extent do you feel a sense of pride being an American?",
+    english: "To what extent do you feel a sense of pride being an American?",
     spanish: "¿Hasta qué punto se siente orgulloso de ser estadounidense?",
   },
   familiarityWithSp500: {
-    english:
-      "How familiar are you with the S&P 500?",
+    english: "How familiar are you with the S&P 500?",
     spanish: "¿Está familiarizado con el S&P 500? ",
   },
   easeOfPronunciationSp500: {
@@ -51,27 +49,29 @@ export const questions = {
   followingPerformanceSp500: {
     english:
       "Outside of this experiment, how closely do you follow the performance of the S&P 500?",
-    spanish: "Aparte de este experimento, ¿con qué frecuencia sigue el rendimiento del S&P 500? ",
+    spanish:
+      "¿Aparte de este experimento, ¿con qué frecuencia sigue el rendimiento del S&P 500? ",
   },
 
   familiarityWithOmx25: {
-    english:
-      "How familiar are you with the OMX Helsinki 25?",
-    spanish: "",
+    english: "How familiar are you with the OMX Helsinki 25?",
+    spanish: "¿Está familiarizado con el OMX Helsinki 25?",
   },
   easeOfPronunciationOmx25: {
     english:
       "How difficult or easy is it for you to pronounce the name OMX Helsinki 25?",
-    spanish: "",
+    spanish:
+      "¿Le resulta difícil o fácil pronunciar el nombre OMX Helsinki 25?",
   },
   followingPerformanceOmx25: {
     english:
-      "Outside of this experiment, how closely do you follow the performance of the OMX Helsinki 25?",
-    spanish: "",
+      "¿Outside of this experiment, how closely do you follow the performance of the OMX Helsinki 25?",
+    spanish:
+      "¿Aparte de este experimento, ¿con qué frecuencia sigue el rendimiento del OMX Helsinki 25?",
   },
 };
 
 export const thankYouMessage = {
   english: "Thank you very much for your participation",
-  spanish: "",
+  spanish: "Muchas gracias por su participación",
 };

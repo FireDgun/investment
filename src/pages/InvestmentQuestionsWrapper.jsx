@@ -11,7 +11,7 @@ export default function InvestmentQuestionsWrapper() {
   const { user, setUser } = useLanguage();
   const { lan } = user;
   const [data, setData] = useState(
-    Array(months).fill({ spIndex: 0, riskFree: 0 })
+    Array(months).fill({ index: 0, riskFree: 0 })
   );
   const navigate = useNavigate();
 
@@ -62,7 +62,7 @@ export default function InvestmentQuestionsWrapper() {
       />
 
       {currentMonth === months - 1 &&
-        parseInt(data[data.length - 1].spIndex) +
+        parseInt(data[data.length - 1].index) +
           parseInt(data[data.length - 1].riskFree) ===
           100 && (
           <Button

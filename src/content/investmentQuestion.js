@@ -4,13 +4,13 @@ export const investmentQuestionTitle = {
 };
 
 export const investmentQuestionRequestSp500 = {
-  english: `Please allocate your money between the U.S stock index (S&P 500) and the risk-free asset for a one-year portfolio:`,
-  spanish: `Por favor, distribuya su dinero entre el índice bursátil estadounidense (S&P 500) y el activo libre de riesgo para una cartera a un año:`,
+  english: `Please allocate your money between the U.S stock index (S&P 500) and the risk-free asset for the `,
+  spanish: `Por favor, distribuya su dinero entre el índice bursátil estadounidense (S&P 500) y el activo libre de riesgo para el `,
 };
 
 export const investmentQuestionRequestOmx25 = {
-  english: `Please allocate your money between Finland's index (OMX Helsinki 25) and the risk-free asset for a one-year portfolio:`,
-  spanish: `Por favor, distribuya su dinero entre el índice bursátil estadounidense (OMX Helsinki 25) y el activo libre de riesgo para una cartera a un año:`,
+  english: `Please allocate your money between Finland's index (OMX Helsinki 25) and the risk-free asset for the `,
+  spanish: `Por favor, distribuya su dinero entre el índice bursátil finlandés (OMX Helsinki 25) y el activo libre de riesgo para el `,
 };
 
 export const investmentQuestionFirstPartSp500 = {

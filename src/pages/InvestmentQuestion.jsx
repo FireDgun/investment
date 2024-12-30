@@ -14,7 +14,10 @@ import {
   errorTotal100,
   month as monthText,
   next,
+  numberInWords,
+  previous,
 } from "../content/generalWords";
+import { useShowBlackScreenForPeriodOfTime } from "../providers/ShowBlackScreenForPeriodOfTimeProvider";
 
 export default function InvestmentQuestion({
   month,
@@ -27,29 +30,29 @@ export default function InvestmentQuestion({
 }) {
   const { user } = useLanguage();
   const { lan, type } = user;
-  const { spIndex, riskFree } = data;
+  const { index, riskFree } = data;
   const [total, setTotal] = useState(0);
   const [error, setError] = useState(true);
-
+  const showBlackScreenForPeriodOfTime = useShowBlackScreenForPeriodOfTime();
   const handleValueChange = (event) => {
     onChange(month - 1, event.target.name, event.target.value);
 
     let newTotal =
-      event.target.name === "spIndex"
+      event.target.name === "index"
         ? (parseInt(event.target.value) || 0) + (parseInt(riskFree) || 0)
-        : (parseInt(spIndex) || 0) + (parseInt(event.target.value) || 0);
+        : (parseInt(index) || 0) + (parseInt(event.target.value) || 0);
 
     setTotal(newTotal);
   };
 
   useEffect(() => {
-    if (riskFree !== "" || spIndex !== "") {
+    if (riskFree !== "" || index !== "") {
       setError(total !== 100);
     }
   }, [total]);
 
   useEffect(() => {
-    setTotal((parseInt(riskFree) || 0) + (parseInt(spIndex) || 0));
+    setTotal((parseInt(riskFree) || 0) + (parseInt(index) || 0));
   }, [currentMonth]);
 
   if (lan === "" && type === "") return null;
@@ -62,29 +65,47 @@ export default function InvestmentQuestion({
       <Typography variant="body1">
         {type === "Sp500"
           ? investmentQuestionRequestSp500[lan]
-          : investmentQuestionRequestOmx25[lan]}
+          : investmentQuestionRequestOmx25[lan]}{" "}
+        {numberInWords[month - 1][lan]} {monthText[lan]}
       </Typography>
       <TextField
         fullWidth
-        name="spIndex"
+        name="index"
         label={
           type === "Sp500"
             ? investmentQuestionFirstPartSp500[lan]
             : investmentQuestionFirstPartOmx25[lan]
         }
-        value={spIndex}
-        onChange={handleValueChange}
+        value={index}
+        onChange={(e) => {
+          // Only allow positive numbers and empty input for correction
+          if (e.target.value >= 0 || e.target.value === "") {
+            handleValueChange(e);
+          }
+        }}
         type="number"
         margin="normal"
+        slotProps={{
+          htmlInput: { min: "0" }, // Enforces minimum in supported browsers
+        }}
       />
+
       <TextField
         fullWidth
         name="riskFree"
         label={investmentQuestionSecondPart[lan]}
         value={riskFree}
-        onChange={handleValueChange}
+        onChange={(e) => {
+          // Only allow positive numbers and empty input for correction
+          if (e.target.value >= 0 || e.target.value === "") {
+            handleValueChange(e);
+          }
+        }}
         type="number"
         margin="normal"
+        slotProps={{
+          htmlInput: { min: "0" }, // Use this to specify the minimum value
+        }}
       />
       <Typography variant="body1" sx={{ mt: 2 }}>
         {totalWord[lan]}: {total || 0}%
@@ -100,12 +121,13 @@ export default function InvestmentQuestion({
           }}
           disabled={currentMonth === 0 || error || total === 0}
         >
-          Previous
+          {previous[lan]}
         </Button>
         <Button
           variant="contained"
           color="primary"
           onClick={() => {
+            showBlackScreenForPeriodOfTime(500);
             handleNext();
           }}
           disabled={currentMonth === months - 1 || error || total === 0}

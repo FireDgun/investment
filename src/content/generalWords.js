@@ -3,6 +3,10 @@ export const next = {
   spanish: `Pulse para continuar`,
 };
 
+export const previous = {
+  english: `Previous`,
+  spanish: `Previo`,
+};
 export const approveAndContinue = {
   english: "Approve and continue",
   spanish: "Aprobar y continuar ",
@@ -75,3 +79,18 @@ export const continuously = {
   english: "Continuously",
   spanish: "Continuamente",
 };
+
+export const numberInWords = [
+  { english: "First", spanish: "Primer" },
+  { english: "Second", spanish: "Segundo" },
+  { english: "Third", spanish: "Tercero" },
+  { english: "Fourth", spanish: "Cuarto" },
+  { english: "Fifth", spanish: "Quinto" },
+  { english: "Sixth", spanish: "Sexto" },
+  { english: "Seventh", spanish: "Séptimo" },
+  { english: "Eighth", spanish: "Octavo" },
+  { english: "Ninth", spanish: "Noveno" },
+  { english: "Tenth", spanish: "Décimo" },
+  { english: "Eleventh", spanish: "Undécimo" },
+  { english: "Twelfth", spanish: "Duodécimo" },
+];

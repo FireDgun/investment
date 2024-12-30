@@ -7,6 +7,7 @@ import {
   FormLabel,
   Button,
   Paper,
+  Box,
 } from "@mui/material";
 import {
   text,
@@ -23,7 +24,7 @@ export default function ReadingQuestions() {
   const [selectedAnswer1, setSelectedAnswer1] = useState("");
   const [selectedAnswer2, setSelectedAnswer2] = useState("");
   const { user, setUser } = useLanguage();
-  const { lan } = user;
+  const lan = "spanish";
   const nav = useNavigate();
   const handleRadioChange1 = (event) => {
     setSelectedAnswer1(event.target.value);
@@ -51,40 +52,42 @@ export default function ReadingQuestions() {
   return (
     <Paper sx={{ p: 3 }}>
       <h3>{text[lan]}</h3>
-      <FormControl component="fieldset" sx={{ mr: 5 }}>
-        <FormLabel component="legend">{question1[lan]}</FormLabel>
-        <RadioGroup
-          name="question1"
-          value={selectedAnswer1}
-          onChange={handleRadioChange1}
-        >
-          {question1Answers[lan].map((answer, index) => (
-            <FormControlLabel
-              value={index.toString()}
-              control={<Radio />}
-              label={answer}
-              key={index}
-            />
-          ))}
-        </RadioGroup>
-      </FormControl>
-      <FormControl component="fieldset">
-        <FormLabel component="legend">{question2[lan]}</FormLabel>
-        <RadioGroup
-          name="question2"
-          value={selectedAnswer2}
-          onChange={handleRadioChange2}
-        >
-          {question2Answers[lan].map((answer, index) => (
-            <FormControlLabel
-              value={index.toString()}
-              control={<Radio />}
-              label={answer}
-              key={index}
-            />
-          ))}
-        </RadioGroup>
-      </FormControl>
+      <Box sx={{ display: "flex" }}>
+        <FormControl component="fieldset" sx={{ mr: 5 }}>
+          <FormLabel component="legend">{question1[lan]}</FormLabel>
+          <RadioGroup
+            name="question1"
+            value={selectedAnswer1}
+            onChange={handleRadioChange1}
+          >
+            {question1Answers[lan].map((answer, index) => (
+              <FormControlLabel
+                value={index.toString()}
+                control={<Radio />}
+                label={answer}
+                key={index}
+              />
+            ))}
+          </RadioGroup>
+        </FormControl>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">{question2[lan]}</FormLabel>
+          <RadioGroup
+            name="question2"
+            value={selectedAnswer2}
+            onChange={handleRadioChange2}
+          >
+            {question2Answers[lan].map((answer, index) => (
+              <FormControlLabel
+                value={index.toString()}
+                control={<Radio />}
+                label={answer}
+                key={index}
+              />
+            ))}
+          </RadioGroup>
+        </FormControl>
+      </Box>
       <Button
         variant="contained"
         onClick={handleSubmit}
