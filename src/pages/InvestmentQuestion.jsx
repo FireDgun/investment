@@ -123,17 +123,19 @@ export default function InvestmentQuestion({
         >
           {previous[lan]}
         </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => {
-            showBlackScreenForPeriodOfTime(500);
-            handleNext();
-          }}
-          disabled={currentMonth === months - 1 || error || total === 0}
-        >
-          {next[lan]}
-        </Button>
+        {currentMonth !== months - 1 && (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              showBlackScreenForPeriodOfTime(500);
+              handleNext();
+            }}
+            disabled={currentMonth === months - 1 || error || total === 0}
+          >
+            {next[lan]}
+          </Button>
+        )}
       </Box>
     </Box>
   );
