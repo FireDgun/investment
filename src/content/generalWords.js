@@ -50,9 +50,24 @@ export const statistic = {
   spanish: "Estadística",
 };
 
+export const resultsOfInvestment = {
+  english: "Results of investment: ",
+  spanish: "Resultados de la inversión: ",
+};
+
 export const value = {
   english: "Value",
   spanish: "Valor",
+};
+
+export const Annually = {
+  english: "Annually",
+  spanish: "Anualmente",
+};
+
+export const Monthly = {
+  english: "Monthly",
+  spanish: "Mensualmente",
 };
 
 export const notAtAll = {

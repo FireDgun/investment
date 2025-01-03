@@ -63,13 +63,11 @@ export default function InvestmentTrial() {
         </>
       ) : (
         <Box sx={{ padding: 3, margin: "auto", maxWidth: 400 }}>
-          <Typography variant="h6">
-            {investmentTrialQuestionTitle[lan]}
-          </Typography>
-          <Typography variant="body1">
+          <Typography>{investmentTrialQuestionTitle[lan]}</Typography>
+          <Typography>
             {type === "Sp500"
               ? investmentQuestionRequestSp500[lan]
-              : investmentQuestionRequestOmx25[lan]}{" "}
+              : investmentQuestionRequestOmx25[lan]}
           </Typography>
           <TextField
             fullWidth
@@ -110,10 +108,10 @@ export default function InvestmentTrial() {
               htmlInput: { min: "0" }, // Use this to specify the minimum value
             }}
           />
-          <Typography variant="body1" sx={{ mt: 2 }}>
+          <Typography sx={{ mt: 2 }}>
             {totalWord[lan]}: {total || 0}%
           </Typography>
-          <Typography variant="body2" color={error ? "error" : "inherit"}>
+          <Typography color={error ? "error" : "inherit"}>
             {error && errorTotal100[lan]}
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>

@@ -91,7 +91,7 @@ export default function ReadingQuestions() {
       <Button
         variant="contained"
         onClick={handleSubmit}
-        disabled={selectedAnswer2 === "" && selectedAnswer1 === ""}
+        disabled={selectedAnswer2 === "" || selectedAnswer1 === ""}
       >
         {approveAndContinue[lan]}
       </Button>

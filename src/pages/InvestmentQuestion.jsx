@@ -83,10 +83,10 @@ export default function InvestmentQuestion({
         </>
       ) : (
         <Box sx={{ padding: 3, margin: "auto", maxWidth: 400 }}>
-          <Typography variant="h6">
+          <Typography>
             {monthText[lan]} {month}: {investmentQuestionTitle[lan]}
           </Typography>
-          <Typography variant="body1">
+          <Typography>
             {type === "Sp500"
               ? investmentQuestionRequestSp500[lan]
               : investmentQuestionRequestOmx25[lan]}{" "}
@@ -131,10 +131,10 @@ export default function InvestmentQuestion({
               htmlInput: { min: "0" }, // Use this to specify the minimum value
             }}
           />
-          <Typography variant="body1" sx={{ mt: 2 }}>
+          <Typography sx={{ mt: 2 }}>
             {totalWord[lan]}: {total || 0}%
           </Typography>
-          <Typography variant="body2" color={error ? "error" : "inherit"}>
+          <Typography color={error ? "error" : "inherit"}>
             {error && errorTotal100[lan]}
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>

@@ -11,7 +11,12 @@ import {
   trialResultStartSp500,
   trialSummary,
 } from "../content/investmentQuestion";
-import { month, next, numberInWords } from "../content/generalWords";
+import {
+  month,
+  next,
+  numberInWords,
+  resultsOfInvestment,
+} from "../content/generalWords";
 
 export default function TrialResults({
   indexPercent,
@@ -46,7 +51,21 @@ export default function TrialResults({
             indexUpPercent +
             "%"}
       </Typography>
-
+      <Typography>
+        {resultsOfInvestment[lan]}
+        {(indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
+          100 /
+          100 >
+        0
+          ? "+"
+          : ""}{" "}
+        {(
+          amountOfMoney *
+          ((indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
+            100 /
+            100)
+        ).toFixed(2)}
+      </Typography>
       {isTrial && (
         <Typography>
           {trialResult[lan]}

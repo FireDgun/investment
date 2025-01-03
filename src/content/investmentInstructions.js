@@ -1,8 +1,8 @@
 export const explanationStart = {
-  english: `In this task, you will allocate $50 between a risky asset (stock index) and a risk-free asset with a guaranteed positive return. Simulating a one-year investment, you will make portfolio allocation decisions at the beginning of each month, totaling 12 decisions.
+  english: `In this task, you will allocate $50 between a risky asset (stock index) and a risk-free asset. Simulating a one-year investment, you will make portfolio allocation decisions at the beginning of each month, totaling 12 decisions.
 You will receive a $50 loan to use for the investment game. 6.	One out of every 10 participants will be selected through a random draw to receive a payment based on their investment game performance plus an $5 bonus. If you are drawn, you will receive this payment addition to your payment for participating in the study.
 `,
-  spanish: `En esta tarea, asignará $50 entre un activo de riesgo (índice bursátil) y un activo libre de riesgo con una rentabilidad positiva garantizada. Simulando inversiones a lo largo de un año, tomará decisiones de asignación de cartera al principio de cada mes, sumando un total de 12 decisiones.
+  spanish: `En esta tarea, asignará $50 entre un activo de riesgo (índice bursátil) y un activo libre de riesgo.. Simulando inversiones a lo largo de un año, tomará decisiones de asignación de cartera al principio de cada mes, sumando un total de 12 decisiones.
 Recibirá un préstamo de $50 para utilizar en el juego de inversión. Uno de cada 10 participantes será seleccionado mediante un sorteo al azar para recibir un pago basado en su rendimiento en el juego de inversión más una bonificación de $5. Si sale elegido, recibirá este pago además del pago por participar en el estudio.
 `,
 };
@@ -68,16 +68,16 @@ export const tableTitleOmx25 = {
 
 export const tableRows = {
   english: [
-    `Mean annual return`,
-    `Annual standard deviation`,
-    `Maximum monthly return`,
-    `Minimum monthly return`,
+    `Mean return`,
+    `Standard deviation`,
+    `Maximum return`,
+    `Minimum return`,
   ],
   spanish: [
-    `Rentabilidad media anual`,
-    `Desviación estándar anual`,
-    `Rentabilidad mensual máxima`,
-    `Rentabilidad mensual mínima`,
+    `Rentabilidad media`,
+    `Desviación estándar`,
+    `Rentabilidad máxima`,
+    `Rentabilidad mínima`,
   ],
 };
 
@@ -99,14 +99,14 @@ export const underTheGraphStartSp500 = {
   english:
     "Analysts predict that the historic 5-year returns of the US stock index provide a reliable indicator of its potential returns in the upcoming year.",
   spanish:
-    "Los analistas predicen que las rentabilidades históricas a 5 años del índice bursátil estadounidense proporcionan un indicador fiable de sus rentabilidades potenciales en el próximo año",
+    "Los analistas predicen que las rentabilidades históricas a 5 años del índice bursátil estadounidense proporcionan un indicador fiable de sus rentabilidades potenciales en el próximo año.",
 };
 
 export const underTheGraphStartOmx25 = {
   english:
-    "Analysts predict that the historic 5-year returns of Finland's stock index provide a reliable indicator of its potential returns in the upcoming year",
+    "Analysts predict that the historic 5-year returns of Finland's stock index provide a reliable indicator of its potential returns in the upcoming year.",
   spanish:
-    "Los analistas predicen que las rentabilidades históricas a 5 años del índice bursátil de Finlandia proporcionan un indicador fiable de sus rentabilidades potenciales en el próximo año",
+    "Los analistas predicen que las rentabilidades históricas a 5 años del índice bursátil de Finlandia proporcionan un indicador fiable de sus rentabilidades potenciales en el próximo año.",
 };
 
 export const underTheGraphMiddleBoldSp500 = {
