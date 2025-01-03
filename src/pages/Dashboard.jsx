@@ -78,7 +78,6 @@ export default function Dashboard() {
   ];
 
   const exportToExcel = () => {
-    // Define the column order based on your previous setup
     const columnOrder = [
       "_id",
       "type",

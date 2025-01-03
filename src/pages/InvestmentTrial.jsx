@@ -1,65 +1,48 @@
 import React, { useEffect, useState } from "react";
-import { Typography, TextField, Box, Button } from "@mui/material";
 import { useLanguage } from "../providers/LanguageProvider";
+import { useShowBlackScreenForPeriodOfTime } from "../providers/ShowBlackScreenForPeriodOfTimeProvider";
 import {
-  investmentQuestionTitle,
-  investmentQuestionRequestSp500,
-  investmentQuestionRequestOmx25,
-  investmentQuestionFirstPartSp500,
   investmentQuestionFirstPartOmx25,
+  investmentQuestionFirstPartSp500,
+  investmentQuestionRequestOmx25,
+  investmentQuestionRequestSp500,
   investmentQuestionSecondPart,
   total as totalWord,
+  investmentTrialQuestionTitle,
 } from "../content/investmentQuestion";
-import {
-  errorTotal100,
-  month as monthText,
-  next,
-  numberInWords,
-} from "../content/generalWords";
-import { useShowBlackScreenForPeriodOfTime } from "../providers/ShowBlackScreenForPeriodOfTimeProvider";
+import { errorTotal100, next } from "../content/generalWords";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import TrialResults from "./TrialResults";
+import { useNavigate } from "react-router-dom";
 
-export default function InvestmentQuestion({
-  month,
-  data,
-  onChange,
-  handleNext,
-  currentMonth,
-  months,
-  indexUpPercent,
-  amountOfMoney,
-  isFinished,
-  setIsFinished,
-}) {
+export default function InvestmentTrial() {
   const { user } = useLanguage();
   const { lan, type } = user;
-  const { index, riskFree } = data;
+  const navigate = useNavigate();
+  const [isFinished, setIsFinished] = useState(false);
+
+  const [data, setData] = useState({ index: 0, riskFree: 0 });
+
   const [total, setTotal] = useState(0);
   const [error, setError] = useState(true);
   const showBlackScreenForPeriodOfTime = useShowBlackScreenForPeriodOfTime();
-
   const handleValueChange = (event) => {
-    onChange(month - 1, event.target.name, event.target.value);
-
+    setData((prev) => ({ ...prev, [event.target.name]: event.target.value }));
     let newTotal =
       event.target.name === "index"
-        ? (parseInt(event.target.value) || 0) + (parseInt(riskFree) || 0)
-        : (parseInt(index) || 0) + (parseInt(event.target.value) || 0);
+        ? (parseInt(event.target.value) || 0) + (parseInt(data.riskFree) || 0)
+        : (parseInt(data.index) || 0) + (parseInt(event.target.value) || 0);
 
     setTotal(newTotal);
   };
 
   useEffect(() => {
-    if (riskFree !== "" || index !== "") {
+    if (data.riskFree !== "" || data.index !== "") {
       setError(total !== 100);
     }
   }, [total]);
 
-  useEffect(() => {
-    setTotal((parseInt(riskFree) || 0) + (parseInt(index) || 0));
-  }, [currentMonth]);
-
-  const onNext = () => {
+  const handleNext = () => {
     setIsFinished(true);
   };
 
@@ -70,27 +53,23 @@ export default function InvestmentQuestion({
       {isFinished ? (
         <>
           <TrialResults
-            indexPercent={index}
-            handleContinue={(newAmount) => {
-              handleNext(newAmount);
-              setIsFinished(false);
+            indexPercent={data.index}
+            handleContinue={() => {
+              navigate("/investmentQuestion/?PROLIFIC_PID=" + user._id);
             }}
-            indexUpPercent={indexUpPercent}
-            amountOfMoney={amountOfMoney}
-            isTrial={false}
-            monthIndex={currentMonth}
+            indexUpPercent={1.46}
+            amountOfMoney={50}
           />
         </>
       ) : (
         <Box sx={{ padding: 3, margin: "auto", maxWidth: 400 }}>
           <Typography variant="h6">
-            {monthText[lan]} {month}: {investmentQuestionTitle[lan]}
+            {investmentTrialQuestionTitle[lan]}
           </Typography>
           <Typography variant="body1">
             {type === "Sp500"
               ? investmentQuestionRequestSp500[lan]
               : investmentQuestionRequestOmx25[lan]}{" "}
-            {numberInWords[month - 1][lan]} {monthText[lan]}
           </Typography>
           <TextField
             fullWidth
@@ -100,7 +79,7 @@ export default function InvestmentQuestion({
                 ? investmentQuestionFirstPartSp500[lan]
                 : investmentQuestionFirstPartOmx25[lan]
             }
-            value={index}
+            value={data.index}
             onChange={(e) => {
               // Only allow positive numbers and empty input for correction
               if (e.target.value >= 0 || e.target.value === "") {
@@ -118,7 +97,7 @@ export default function InvestmentQuestion({
             fullWidth
             name="riskFree"
             label={investmentQuestionSecondPart[lan]}
-            value={riskFree}
+            value={data.riskFree}
             onChange={(e) => {
               // Only allow positive numbers and empty input for correction
               if (e.target.value >= 0 || e.target.value === "") {
@@ -138,20 +117,18 @@ export default function InvestmentQuestion({
             {error && errorTotal100[lan]}
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
-            {
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => {
-                  showBlackScreenForPeriodOfTime(500);
-                  onNext();
-                }}
-                disabled={error || total === 0}
-                sx={{ my: 3 }}
-              >
-                {next[lan]}
-              </Button>
-            }
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                showBlackScreenForPeriodOfTime(500);
+                handleNext();
+              }}
+              disabled={error || total === 0}
+              sx={{ my: 3 }}
+            >
+              {next[lan]}
+            </Button>
           </Box>
         </Box>
       )}

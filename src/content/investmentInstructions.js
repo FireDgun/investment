@@ -1,9 +1,9 @@
 export const explanationStart = {
-  english: `In this task, you will allocate $50 between a risky asset (stock index) and a risk-free asset with a guaranteed positive return. Simulating investments over a year, you will make portfolio allocation decisions at the beginning of each month, totaling 12 decisions.
-You will receive a $100 loan to use for the investment game. One out of every 10 participants will be selected through a randomly drawn lottery to receive a payment based on their investment game performance plus an $8 bonus. If you are drawn, you will receive the bonus in addition to your payment for participating in the study. 
+  english: `In this task, you will allocate $50 between a risky asset (stock index) and a risk-free asset with a guaranteed positive return. Simulating a one-year investment, you will make portfolio allocation decisions at the beginning of each month, totaling 12 decisions.
+You will receive a $50 loan to use for the investment game. 6.	One out of every 10 participants will be selected through a random draw to receive a payment based on their investment game performance plus an $5 bonus. If you are drawn, you will receive this payment addition to your payment for participating in the study.
 `,
   spanish: `En esta tarea, asignará $50 entre un activo de riesgo (índice bursátil) y un activo libre de riesgo con una rentabilidad positiva garantizada. Simulando inversiones a lo largo de un año, tomará decisiones de asignación de cartera al principio de cada mes, sumando un total de 12 decisiones.
-Recibirá un préstamo de $100 para utilizar en el juego de inversión. Uno de cada 10 participantes será seleccionado mediante un sorteo al azar para recibir un pago basado en su rendimiento en el juego de inversión más una bonificación de $8. Si sale elegido, recibirá la bonificación además del pago por participar en el estudio. 
+Recibirá un préstamo de $50 para utilizar en el juego de inversión. Uno de cada 10 participantes será seleccionado mediante un sorteo al azar para recibir un pago basado en su rendimiento en el juego de inversión más una bonificación de $5. Si sale elegido, recibirá este pago además del pago por participar en el estudio.
 `,
 };
 
@@ -38,13 +38,13 @@ export const partAStart = {
 };
 
 export const partAMiddleBoldSp500 = {
-  english: `The US stock index S&P 500 (SPX) and a risk-free asset offering a guaranteed annual return of 4.5%.`,
-  spanish: `El índice bursátil estadounidense S&P 500 (SPX) y un activo libre de riesgo que ofrezca una rentabilidad anual garantizada del 4,5%.`,
+  english: `The US stock index S&P 500 (SPX) and a risk-free asset offering a guaranteed annual return of 4.5% (0.37% per month).`,
+  spanish: `El índice bursátil estadounidense S&P 500 (SPX) y un activo libre de riesgo que ofrezca una rentabilidad anual garantizada del 4,5% (0,37% mensual).`,
 };
 
 export const partAMiddleBoldOmx25 = {
-  english: `Finland's stock index OMX Helsinki 25 (OMXH25) and a risk-free asset offering a guaranteed annual return of 4.5%.`,
-  spanish: `El índice bursátil estadounidense OMX Helsinki 25 (OMXH25) y un activo libre de riesgo que ofrezca una rentabilidad anual garantizada del 4,5%.`,
+  english: `Finland's stock index OMX Helsinki 25 (OMXH25) and a risk-free asset offering a guaranteed annual return of 4.5% (0.37% per month).`,
+  spanish: `El índice bursátil estadounidense OMX Helsinki 25 (OMXH25) y un activo libre de riesgo que ofrezca una rentabilidad anual garantizada del 4,5% (0,37% mensual).`,
 };
 
 export const partAEndSp500 = {
@@ -125,7 +125,7 @@ export const underTheGraphMiddleBoldOmx25 = {
 
 export const underTheGraphEnd = {
   english:
-    "At the beginning of each period (month), you will decide how to allocate funds between the risky asset and the risk-free asset. Cumulative monthly returns will be calculated at the end of the one-year investment period. In each period, your total allocation must sum to 100%. ",
+    "At the beginning of each period (month), you will decide how to allocate funds between the risky asset and the risk-free asset. Cumulative monthly returns will be calculated at the end of each period. In each period, your total allocation must sum to 100%.",
   spanish:
     "Al principio de cada periodo (mes), decidirá cómo asignar los fondos entre el activo de riesgo y el activo libre de riesgo. La rentabilidad mensual acumulada se calculará al final del periodo de inversión de un año. En cada periodo, la asignación total debe sumar el 100%. ",
 };

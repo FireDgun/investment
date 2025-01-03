@@ -11,6 +11,7 @@ import PersonalQuestions from "../pages/PersonalQuestions";
 import ThankYou from "../pages/ThankYou";
 import { useLanguage } from "../providers/LanguageProvider";
 import Dashboard from "../pages/Dashboard";
+import InvestmentTrial from "../pages/InvestmentTrial";
 
 export default function Router() {
   return (
@@ -21,6 +22,7 @@ export default function Router() {
         path="/investmentInstructions"
         element={<InvestmentInstructions />}
       />
+      <Route path="/investmentQuestionTrial" element={<InvestmentTrial />} />
       <Route
         path="/investmentQuestion"
         element={<InvestmentQuestionsWrapper />}

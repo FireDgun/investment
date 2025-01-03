@@ -21,6 +21,7 @@ export default function WelcomePage() {
       <Button
         onClick={() => nav("/readingQuestions/?PROLIFIC_PID=" + user._id)}
         variant="contained"
+        sx={{ my: 3 }}
       >
         {next[lan]}
       </Button>

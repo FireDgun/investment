@@ -5,11 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../providers/LanguageProvider";
 import { approveAndContinue, month } from "../content/generalWords";
 
+const monthsIndexUpPercent = [
+  3.58, 5.24, -3.14, 4.53, -1.11, 1.31, 3.71, -5.26, 10.75, -6.58, 1.46, 1.84,
+];
+
 export default function InvestmentQuestionsWrapper() {
   const months = 12;
   const [currentMonth, setCurrentMonth] = useState(0); // Start at month 1
   const { user, setUser } = useLanguage();
   const { lan } = user;
+  const [amountOfMoney, setAmountOfMoney] = useState(50);
+  const [isFinished, setIsFinished] = useState(false);
+
   const [data, setData] = useState(
     Array(months).fill({ index: 0, riskFree: 0 })
   );
@@ -21,17 +28,18 @@ export default function InvestmentQuestionsWrapper() {
     );
   };
 
-  const handleNext = () => {
+  const handleNext = (newAmountOfMoney) => {
+    setAmountOfMoney(newAmountOfMoney);
     if (currentMonth < months - 1) {
       setCurrentMonth(currentMonth + 1);
     }
   };
 
-  const handlePrevious = () => {
-    if (currentMonth > 0) {
-      setCurrentMonth(currentMonth - 1);
-    }
-  };
+  // const handlePrevious = () => {
+  //   if (currentMonth > 0) {
+  //     setCurrentMonth(currentMonth - 1);
+  //   }
+  // };
 
   const handleSubmit = () => {
     console.log(data); // Handle final submission
@@ -42,7 +50,7 @@ export default function InvestmentQuestionsWrapper() {
       });
     });
     setUser((prev) => ({ ...prev, ...obj }));
-    navigate("/results/?PROLIFIC_PID=" + user._id);
+    navigate("/moreQuestions/?PROLIFIC_PID=" + user._id);
   };
   if (lan === "") return null;
 
@@ -56,12 +64,16 @@ export default function InvestmentQuestionsWrapper() {
         data={data[currentMonth]}
         onChange={handleChange}
         handleNext={handleNext}
-        handlePrevious={handlePrevious}
         months={months}
         currentMonth={currentMonth}
+        indexUpPercent={monthsIndexUpPercent[currentMonth]}
+        amountOfMoney={amountOfMoney}
+        isFinished={isFinished}
+        setIsFinished={setIsFinished}
       />
 
       {currentMonth === months - 1 &&
+        isFinished &&
         parseInt(data[data.length - 1].index) +
           parseInt(data[data.length - 1].riskFree) ===
           100 && (

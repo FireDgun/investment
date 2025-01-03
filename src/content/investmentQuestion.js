@@ -3,6 +3,11 @@ export const investmentQuestionTitle = {
   spanish: `Decisión de asignación de inversiones`,
 };
 
+export const investmentTrialQuestionTitle = {
+  english: `Before we begin, we want you to try out a trial round.`,
+  spanish: `Antes de comenzar, queremos que pruebes una ronda de prueba.`,
+};
+
 export const investmentQuestionRequestSp500 = {
   english: `Please allocate your money between the U.S stock index (S&P 500) and the risk-free asset for the `,
   spanish: `Por favor, distribuya su dinero entre el índice bursátil estadounidense (S&P 500) y el activo libre de riesgo para el `,
@@ -31,4 +36,47 @@ export const investmentQuestionSecondPart = {
 export const total = {
   english: "Total",
   spanish: "Total",
+};
+export const trialResultStartSp500 = {
+  english: "The U.S stock index returns during the practice round is 1.46% ",
+  spanish:
+    "El rendimiento del índice bursátil de EE.UU. durante la ronda de práctica es del 1.46% ",
+};
+
+export const trialResultStartOmx25 = {
+  english: "The Finland's index returns during the practice round is 1.46% ",
+  spanish:
+    "El rendimiento del índice de Finlandia durante la ronda de práctica es del 1.46% ",
+};
+
+export const ResultStartSp500 = {
+  english: "The U.S stock index returns during the ",
+  spanish: "El rendimiento del índice bursátil de EE.UU. durante",
+};
+
+export const ResultStartOmx25 = {
+  english: "The Finland's index returns during the ",
+  spanish: "El rendimiento del índice de Finlandia durante la ",
+};
+
+export const trialResult = {
+  english: "Your portfolio returns during the practice round:",
+  spanish: "El rendimiento de tu cartera durante la ronda de práctica:",
+};
+
+export const trialSummary = {
+  english:
+    "If this were a real round, your current profile to invest would be: ",
+  spanish:
+    "Si esto fuera una ronda real, tu perfil actual para invertir sería: ",
+};
+
+export const resultSummary = {
+  english: "Your current profile to invest:  ",
+  spanish: "Tu perfil actual para invertir: ",
+};
+
+export const summaryLastMonth = {
+  english: "Your total net gain (after returning the loan): ",
+  spanish: "Su ganancia neta total (después de devolver el préstamo):",
 };

@@ -125,8 +125,11 @@ export default function InvestmentInstructions() {
         </Typography>
         <Typography variant="body1">{underTheGraphEnd[lan]}</Typography>
         <Button
-          onClick={() => nav("/investmentQuestion/?PROLIFIC_PID=" + user._id)}
+          onClick={() =>
+            nav("/investmentQuestionTrial/?PROLIFIC_PID=" + user._id)
+          }
           variant="contained"
+          sx={{ my: 3 }}
         >
           {next[lan]}
         </Button>
