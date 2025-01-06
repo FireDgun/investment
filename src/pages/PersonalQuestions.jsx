@@ -17,6 +17,8 @@ import {
   allTheTime,
   approveAndContinue,
   continuously,
+  difficult,
+  easy,
   female,
   male,
   never,
@@ -40,6 +42,7 @@ export default function PersonalQuestions() {
     familiarityWithIndex: "",
     easeOfPronunciationIndex: "",
     followingPerformanceIndex: "",
+    processingQuestion: "",
   });
 
   // Handle input changes for all form fields
@@ -58,43 +61,34 @@ export default function PersonalQuestions() {
   return (
     <Box sx={{ margin: 4, display: "flex", flexDirection: "column", gap: 2 }}>
       <Typography variant="h5">{surveyIntroduction[lan]}</Typography>
-
-      {/* Gender Question */}
       <FormControl component="fieldset" sx={{ mt: 2 }}>
-        <FormLabel component="legend">{questions.gender[lan]}</FormLabel>
+        <FormLabel component="legend">
+          {questions.processingQuestion[lan]}
+        </FormLabel>
         <RadioGroup
           row
-          name="gender"
-          value={formData.gender}
-          onChange={handleChange("gender")}
+          name="processingQuestion"
+          value={formData.processingQuestion}
+          onChange={handleChange("processingQuestion")}
         >
-          <FormControlLabel
-            value="male"
-            control={<Radio />}
-            label={male[lan]}
-          />
-          <FormControlLabel
-            value="female"
-            control={<Radio />}
-            label={female[lan]}
-          />
-          <FormControlLabel
-            value="other"
-            control={<Radio />}
-            label={other[lan]}
-          />
+          {/* Generate radio buttons for options 1 to 7 */}
+          {[...Array(7)].map((_, index) => (
+            <FormControlLabel
+              key={index}
+              value={index + 1}
+              control={<Radio />}
+              labelPlacement="bottom"
+              label={
+                index +
+                1 +
+                " " +
+                (index === 0 ? easy[lan] : "") +
+                (index === 6 ? difficult[lan] : "")
+              }
+            />
+          ))}
         </RadioGroup>
       </FormControl>
-
-      {/* Age Question */}
-      <TextField
-        label={questions.age[lan]}
-        value={formData.age}
-        onChange={handleChange("age")}
-        type="number"
-        fullWidth
-        sx={{ mt: 2 }}
-      />
 
       {/* Stock Market Experience Question */}
       <FormControl component="fieldset" sx={{ mt: 2 }}>
@@ -253,6 +247,42 @@ export default function PersonalQuestions() {
           ))}
         </RadioGroup>
       </FormControl>
+      {/* Gender Question */}
+      <FormControl component="fieldset" sx={{ mt: 2 }}>
+        <FormLabel component="legend">{questions.gender[lan]}</FormLabel>
+        <RadioGroup
+          row
+          name="gender"
+          value={formData.gender}
+          onChange={handleChange("gender")}
+        >
+          <FormControlLabel
+            value="male"
+            control={<Radio />}
+            label={male[lan]}
+          />
+          <FormControlLabel
+            value="female"
+            control={<Radio />}
+            label={female[lan]}
+          />
+          <FormControlLabel
+            value="other"
+            control={<Radio />}
+            label={other[lan]}
+          />
+        </RadioGroup>
+      </FormControl>
+
+      {/* Age Question */}
+      <TextField
+        label={questions.age[lan]}
+        value={formData.age}
+        onChange={handleChange("age")}
+        type="number"
+        fullWidth
+        sx={{ mt: 2 }}
+      />
 
       {/* Submit Button */}
       <Box sx={{ mt: 2 }}>

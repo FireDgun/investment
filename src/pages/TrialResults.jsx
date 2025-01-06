@@ -52,7 +52,11 @@ export default function TrialResults({
             "%"}
       </Typography>
       <Typography>
-        {resultsOfInvestment[lan]}
+        {resultsOfInvestment[lan] +
+          numberInWords[monthIndex][lan] +
+          " " +
+          month[lan] +
+          ": "}
         {(indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
           100 /
           100 >
@@ -68,7 +72,7 @@ export default function TrialResults({
       </Typography>
       {isTrial && (
         <Typography>
-          {trialResult[lan]}
+          {trialResult[lan] + " "}
           {(
             (indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
             100

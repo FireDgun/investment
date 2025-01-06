@@ -33,6 +33,11 @@ export default function Dashboard() {
     { field: "age", headerName: "Age", width: 110 },
     { field: "lan", headerName: "Language", width: 130 },
     {
+      field: "processingQuestion",
+      headerName: "processing Question",
+      width: 230,
+    },
+    {
       field: "stockMarketExperience",
       headerName: "Stock Market Experience",
       width: 230,
@@ -84,6 +89,7 @@ export default function Dashboard() {
       "gender",
       "age",
       "lan",
+      "processingQuestion",
       "stockMarketExperience",
       "familiarityWithIndex",
       "easeOfPronunciationIndex",

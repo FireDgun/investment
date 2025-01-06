@@ -65,9 +65,13 @@ export const questions = {
   },
   followingPerformanceOmx25: {
     english:
-      "¿Outside of this experiment, how closely do you follow the performance of the OMX Helsinki 25?",
+      "Outside of this experiment, how closely do you follow the performance of the OMX Helsinki 25?",
     spanish:
       "¿Aparte de este experimento, ¿con qué frecuencia sigue el rendimiento del OMX Helsinki 25?",
+  },
+  processingQuestion: {
+    english: "Processing the information about the portfolio was: ",
+    spanish: "El procesamiento de la información sobre la cartera fue: ",
   },
 };
 

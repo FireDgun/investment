@@ -34,6 +34,7 @@ import {
   underTheGraphEnd,
   partAEndSp500,
   partAEndOmx25,
+  tableRows,
 } from "../content/investmentInstructions"; // Adjust the path as necessary
 import { useLanguage } from "../providers/LanguageProvider";
 import { useNavigate } from "react-router-dom";
@@ -86,13 +87,13 @@ export default function InvestmentInstructions() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {Object.entries(statisticsData).map(([key, value]) => (
+              {Object.entries(statisticsData).map(([key, value], index) => (
                 <TableRow
                   key={key}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {key}
+                    {tableRows[lan][index]}
                     {/* Add spaces before capital letters */}
                   </TableCell>
                   <TableCell align="right">{value[0]}</TableCell>

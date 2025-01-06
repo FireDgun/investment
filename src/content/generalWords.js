@@ -51,8 +51,8 @@ export const statistic = {
 };
 
 export const resultsOfInvestment = {
-  english: "Results of investment: ",
-  spanish: "Resultados de la inversión: ",
+  english: "Your portfolio return during the ",
+  spanish: "El rendimiento de su cartera durante el ",
 };
 
 export const value = {
@@ -78,6 +78,16 @@ export const notAtAll = {
 export const veryMuch = {
   english: "Very much",
   spanish: "Mucho",
+};
+
+export const difficult = {
+  english: "Difficult",
+  spanish: "Difícil",
+};
+
+export const easy = {
+  english: "Easy",
+  spanish: "Fácil",
 };
 
 export const veryDifficult = {
