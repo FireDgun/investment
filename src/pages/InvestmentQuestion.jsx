@@ -18,7 +18,7 @@ import {
 } from "../content/generalWords";
 import { useShowBlackScreenForPeriodOfTime } from "../providers/ShowBlackScreenForPeriodOfTimeProvider";
 import TrialResults from "./TrialResults";
-import BoldTextWithCondition from "../components/BoldTextWithcondtion";
+import BoldTextWithCondition from "../components/BoldTextWithCondtion";
 
 export default function InvestmentQuestion({
   month,
