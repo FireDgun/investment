@@ -18,7 +18,7 @@ import {
   numberInWords,
   resultsOfInvestment,
 } from "../content/generalWords";
-import BoldTextWithCondition from "../components/BoldTextWithcondtion";
+import BoldTextWithCondition from "../components/BoldTextWithCondition";
 
 export default function TrialResults({
   indexPercent,

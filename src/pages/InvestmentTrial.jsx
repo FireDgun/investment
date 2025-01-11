@@ -16,7 +16,7 @@ import { errorTotal100, next } from "../content/generalWords";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import TrialResults from "./TrialResults";
 import { useNavigate } from "react-router-dom";
-import BoldTextWithCondition from "../components/BoldTextWithcondtion";
+import BoldTextWithCondition from "../components/BoldTextWithCondition";
 
 export default function InvestmentTrial() {
   const { user } = useLanguage();
