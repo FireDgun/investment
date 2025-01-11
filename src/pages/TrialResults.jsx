@@ -78,7 +78,7 @@ export default function TrialResults({
             100 /
             100 >
           0
-            ? "+"
+            ? ""
             : ""}{" "}
           {(
             (indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
