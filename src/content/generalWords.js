@@ -31,7 +31,7 @@ export const never = {
 };
 
 export const allTheTime = {
-  english: "All The Time",
+  english: "Many times",
   spanish: "Todo el tiempo",
 };
 

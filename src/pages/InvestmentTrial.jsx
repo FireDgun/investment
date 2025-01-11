@@ -4,16 +4,19 @@ import { useShowBlackScreenForPeriodOfTime } from "../providers/ShowBlackScreenF
 import {
   investmentQuestionFirstPartOmx25,
   investmentQuestionFirstPartSp500,
-  investmentQuestionRequestOmx25,
-  investmentQuestionRequestSp500,
+  // investmentQuestionRequestOmx25,
+  // investmentQuestionRequestSp500,
   investmentQuestionSecondPart,
   total as totalWord,
   investmentTrialQuestionTitle,
+  investmentTrialQuestionRequestSp500,
+  investmentTrialQuestionRequestOmx25,
 } from "../content/investmentQuestion";
 import { errorTotal100, next } from "../content/generalWords";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import TrialResults from "./TrialResults";
 import { useNavigate } from "react-router-dom";
+import BoldTextWithCondition from "../components/BoldTextWithcondtion";
 
 export default function InvestmentTrial() {
   const { user } = useLanguage();
@@ -65,9 +68,15 @@ export default function InvestmentTrial() {
         <Box sx={{ padding: 3, margin: "auto", maxWidth: 400 }}>
           <Typography>{investmentTrialQuestionTitle[lan]}</Typography>
           <Typography>
-            {type === "Sp500"
-              ? investmentQuestionRequestSp500[lan]
-              : investmentQuestionRequestOmx25[lan]}
+            <BoldTextWithCondition
+              text={
+                type === "Sp500"
+                  ? investmentTrialQuestionRequestSp500[lan]
+                  : investmentTrialQuestionRequestOmx25[lan]
+              }
+              lan={lan}
+              stock={type}
+            />
           </Typography>
           <TextField
             fullWidth

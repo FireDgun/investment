@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Typography, TextField, Box, Button } from "@mui/material";
 import { useLanguage } from "../providers/LanguageProvider";
 import {
-  investmentQuestionTitle,
+  // investmentQuestionTitle,
   investmentQuestionRequestSp500,
   investmentQuestionRequestOmx25,
   investmentQuestionFirstPartSp500,
@@ -18,6 +18,7 @@ import {
 } from "../content/generalWords";
 import { useShowBlackScreenForPeriodOfTime } from "../providers/ShowBlackScreenForPeriodOfTimeProvider";
 import TrialResults from "./TrialResults";
+import BoldTextWithCondition from "../components/BoldTextWithcondtion";
 
 export default function InvestmentQuestion({
   month,
@@ -25,7 +26,7 @@ export default function InvestmentQuestion({
   onChange,
   handleNext,
   currentMonth,
-  months,
+  // months,
   indexUpPercent,
   amountOfMoney,
   isFinished,
@@ -83,13 +84,19 @@ export default function InvestmentQuestion({
         </>
       ) : (
         <Box sx={{ padding: 3, margin: "auto", maxWidth: 400 }}>
-          <Typography>
+          {/* <Typography>
             {monthText[lan]} {month}: {investmentQuestionTitle[lan]}
-          </Typography>
+          </Typography> */}
           <Typography>
-            {type === "Sp500"
-              ? investmentQuestionRequestSp500[lan]
-              : investmentQuestionRequestOmx25[lan]}{" "}
+            <BoldTextWithCondition
+              text={
+                type === "Sp500"
+                  ? investmentQuestionRequestSp500[lan]
+                  : investmentQuestionRequestOmx25[lan]
+              }
+              lan={lan}
+              stock={type}
+            />
             {numberInWords[month - 1][lan]} {monthText[lan]}
           </Typography>
           <TextField

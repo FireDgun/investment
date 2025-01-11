@@ -1,6 +1,6 @@
 export const explanationStart = {
-  english: `In this task, you will allocate $50 between a risky asset (stock index) and a risk-free asset. Simulating a one-year investment, you will make portfolio allocation decisions at the beginning of each month, totaling 12 decisions.
-You will receive a $50 loan to use for the investment game. 6.	One out of every 10 participants will be selected through a random draw to receive a payment based on their investment game performance plus an $5 bonus. If you are drawn, you will receive this payment addition to your payment for participating in the study.
+  english: `In this investment task, you will allocate $50 between a risky asset (stock index) and a risk-free asset. Simulating a one-year investment, you will make portfolio allocation decisions at the beginning of each month, totaling 12 decisions.
+You will receive a $50 loan to use for the investment game. One out of every 10 participants will be selected through a random draw to receive a payment based on their investment game performance plus a $5 bonus. If you are drawn, you will receive this payment in addition to your payment for participating in the study.
 `,
   spanish: `En esta tarea, asignará $50 entre un activo de riesgo (índice bursátil) y un activo libre de riesgo.. Simulando inversiones a lo largo de un año, tomará decisiones de asignación de cartera al principio de cada mes, sumando un total de 12 decisiones.
 Recibirá un préstamo de $50 para utilizar en el juego de inversión. Uno de cada 10 participantes será seleccionado mediante un sorteo al azar para recibir un pago basado en su rendimiento en el juego de inversión más una bonificación de $5. Si sale elegido, recibirá este pago además del pago por participar en el estudio.

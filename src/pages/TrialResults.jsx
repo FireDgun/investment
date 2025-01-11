@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import React from "react";
 import { useLanguage } from "../providers/LanguageProvider";
 import {
+  resultLastMonthSummary,
   ResultStartOmx25,
   ResultStartSp500,
   resultSummary,
@@ -17,6 +18,7 @@ import {
   numberInWords,
   resultsOfInvestment,
 } from "../content/generalWords";
+import BoldTextWithCondition from "../components/BoldTextWithcondtion";
 
 export default function TrialResults({
   indexPercent,
@@ -31,45 +33,59 @@ export default function TrialResults({
   return (
     <Container>
       <Typography>
-        {type === "Sp500"
-          ? isTrial
-            ? trialResultStartSp500[lan]
-            : ResultStartSp500[lan] +
-              numberInWords[monthIndex][lan] +
-              " " +
-              month[lan] +
-              ": " +
-              indexUpPercent +
-              "%"
-          : isTrial
-          ? trialResultStartOmx25[lan]
-          : ResultStartOmx25[lan] +
+        {type === "Sp500" ? (
+          <BoldTextWithCondition
+            text={
+              isTrial
+                ? trialResultStartSp500[lan]
+                : ResultStartSp500[lan] +
+                  numberInWords[monthIndex][lan] +
+                  " " +
+                  month[lan] +
+                  ": " +
+                  indexUpPercent +
+                  "%"
+            }
+            lan={lan}
+            stock={type}
+          />
+        ) : (
+          <BoldTextWithCondition
+            text={
+              isTrial
+                ? trialResultStartOmx25[lan]
+                : ResultStartOmx25[lan] +
+                  numberInWords[monthIndex][lan] +
+                  " " +
+                  month[lan] +
+                  ": " +
+                  indexUpPercent +
+                  "%"
+            }
+            lan={lan}
+            stock={type}
+          />
+        )}
+      </Typography>
+      {!isTrial && (
+        <Typography>
+          {resultsOfInvestment[lan] +
             numberInWords[monthIndex][lan] +
             " " +
             month[lan] +
-            ": " +
-            indexUpPercent +
-            "%"}
-      </Typography>
-      <Typography>
-        {resultsOfInvestment[lan] +
-          numberInWords[monthIndex][lan] +
-          " " +
-          month[lan] +
-          ": "}
-        {(indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
-          100 /
-          100 >
-        0
-          ? "+"
-          : ""}{" "}
-        {(
-          amountOfMoney *
-          ((indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
+            ": "}
+          {(indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
             100 /
-            100)
-        ).toFixed(2)}
-      </Typography>
+            100 >
+          0
+            ? "+"
+            : ""}{" "}
+          {(
+            (indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
+            100
+          ).toFixed(2) + "%"}
+        </Typography>
+      )}
       {isTrial && (
         <Typography>
           {trialResult[lan] + " "}
@@ -80,7 +96,11 @@ export default function TrialResults({
         </Typography>
       )}
       <Typography>
-        {isTrial ? trialSummary[lan] : resultSummary[lan]}{" "}
+        {isTrial
+          ? trialSummary[lan]
+          : monthIndex === 11
+          ? resultLastMonthSummary[lan]
+          : resultSummary[lan]}{" "}
         {(
           amountOfMoney *
           (1 +
@@ -92,7 +112,15 @@ export default function TrialResults({
       {!isTrial && monthIndex === 11 && (
         <Typography>
           {summaryLastMonth[lan]}
-          {Math.max(amountOfMoney - 45, 0).toFixed(2)}
+          {Math.max(
+            amountOfMoney *
+              (1 +
+                (indexUpPercent * indexPercent + 0.37 * (100 - indexPercent)) /
+                  100 /
+                  100) -
+              45,
+            0
+          ).toFixed(2)}
         </Typography>
       )}
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
