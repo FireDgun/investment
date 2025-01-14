@@ -4,7 +4,7 @@ export const investmentQuestionTitle = {
 };
 
 export const investmentTrialQuestionTitle = {
-  english: `Before we begin, we want you to make a practice allocation`,
+  english: `Before we begin, we want you to make a practice allocation.`,
   spanish: `Antes de comenzar, queremos que pruebes una ronda de prueba.`,
 };
 

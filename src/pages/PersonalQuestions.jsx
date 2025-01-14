@@ -20,13 +20,16 @@ import {
   difficult,
   easy,
   female,
+  languages,
   male,
   never,
   notAtAll,
+  opinions,
   other,
   veryDifficult,
   veryEasy,
   veryMuch,
+  yesNo,
 } from "../content/generalWords";
 
 export default function PersonalQuestions() {
@@ -43,6 +46,9 @@ export default function PersonalQuestions() {
     easeOfPronunciationIndex: "",
     followingPerformanceIndex: "",
     processingQuestion: "",
+    mustChooseSomewhatAgree: "",
+    fluentSpanish: "",
+    nativeLanguage: "",
   });
 
   // Handle input changes for all form fields
@@ -101,33 +107,21 @@ export default function PersonalQuestions() {
           value={formData.stockMarketExperience}
           onChange={handleChange("stockMarketExperience")}
         >
-          <FormControlLabel
-            value="1"
-            control={<Radio />}
-            label={never[lan]}
-            labelPlacement="bottom"
-          />
-          <FormControlLabel
-            value="2"
-            control={<Radio />}
-            labelPlacement="bottom"
-          />
-          <FormControlLabel
-            value="3"
-            control={<Radio />}
-            labelPlacement="bottom"
-          />
-          <FormControlLabel
-            value="4"
-            control={<Radio />}
-            labelPlacement="bottom"
-          />
-          <FormControlLabel
-            value="5"
-            control={<Radio />}
-            label={allTheTime[lan]}
-            labelPlacement="bottom"
-          />
+          {[...Array(5)].map((_, index) => (
+            <FormControlLabel
+              key={index}
+              value={index + 1}
+              control={<Radio />}
+              labelPlacement="bottom"
+              label={
+                index +
+                1 +
+                " " +
+                (index === 0 ? never[lan] : "") +
+                (index === 4 ? allTheTime[lan] : "")
+              }
+            />
+          ))}
         </RadioGroup>
       </FormControl>
 
@@ -247,6 +241,73 @@ export default function PersonalQuestions() {
           ))}
         </RadioGroup>
       </FormControl>
+
+      <FormControl component="fieldset" sx={{ mt: 2 }}>
+        <FormLabel component="legend">
+          {questions["mustChooseSomewhatAgree"][lan]}
+        </FormLabel>
+        <RadioGroup
+          row
+          name="mustChooseSomewhatAgree"
+          value={formData.mustChooseSomewhatAgree}
+          onChange={handleChange("mustChooseSomewhatAgree")}
+        >
+          {opinions[lan].map((opinion, index) => (
+            <FormControlLabel
+              key={index}
+              value={index + 1}
+              control={<Radio />}
+              labelPlacement="bottom"
+              label={index + 1 + " " + opinion}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+
+      <FormControl component="fieldset" sx={{ mt: 2 }}>
+        <FormLabel component="legend">
+          {questions["nativeLanguage"][lan]}
+        </FormLabel>
+        <RadioGroup
+          row
+          name="nativeLanguage"
+          value={formData.nativeLanguage}
+          onChange={handleChange("nativeLanguage")}
+        >
+          {languages[lan].map((option, index) => (
+            <FormControlLabel
+              key={index}
+              value={index + 1}
+              control={<Radio />}
+              labelPlacement="bottom"
+              label={index + 1 + " " + option}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+
+      <FormControl component="fieldset" sx={{ mt: 2 }}>
+        <FormLabel component="legend">
+          {questions["fluentSpanish"][lan]}
+        </FormLabel>
+        <RadioGroup
+          row
+          name="fluentSpanish"
+          value={formData.fluentSpanish}
+          onChange={handleChange("fluentSpanish")}
+        >
+          {yesNo[lan].map((option, index) => (
+            <FormControlLabel
+              key={index}
+              value={index + 1}
+              control={<Radio />}
+              labelPlacement="bottom"
+              label={index + 1 + " " + option}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+
       {/* Gender Question */}
       <FormControl component="fieldset" sx={{ mt: 2 }}>
         <FormLabel component="legend">{questions.gender[lan]}</FormLabel>

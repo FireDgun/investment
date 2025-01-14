@@ -33,11 +33,14 @@ export default function ReadingQuestions() {
   const handleRadioChange2 = (event) => {
     setSelectedAnswer2(event.target.value);
   };
+  console.log(selectedAnswer1);
+  console.log(selectedAnswer2);
 
   const handleSubmit = () => {
     const isCorrect1 = parseInt(selectedAnswer1) === question1Answers.correct;
     const isCorrect2 = parseInt(selectedAnswer2) === question2Answers.correct;
     // You can handle the user response here, perhaps by displaying a message
+
     setUser((prev) => ({
       ...prev,
       readingAnswer1: selectedAnswer1,
@@ -45,7 +48,11 @@ export default function ReadingQuestions() {
       isCorrectReadingAnswer1: isCorrect1,
       isCorrectReadingAnswer2: isCorrect2,
     }));
-    nav("/investmentInstructions/?PROLIFIC_PID=" + user._id);
+    if (isCorrect1 && isCorrect2) {
+      nav("/investmentInstructions/?PROLIFIC_PID=" + user._id);
+    } else {
+      nav("/thankYou/?PROLIFIC_PID=" + user._id);
+    }
   };
   if (lan === "") return null;
 

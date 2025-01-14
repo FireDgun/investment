@@ -119,3 +119,39 @@ export const numberInWords = [
   { english: "Eleventh", spanish: "Undécimo" },
   { english: "Twelfth", spanish: "Duodécimo" },
 ];
+
+export const opinions = {
+  english: [
+    "Strongly disagree",
+    "Disagree",
+    "Somewhat disagree",
+    "Neither agree nor disagree",
+    "Somewhat agree",
+    "Agree",
+    "Strongly agree",
+  ],
+  spanish: [
+    "Totalmente en desacuerdo",
+    "En desacuerdo",
+    "Algo en desacuerdo",
+    "Ni de acuerdo ni en desacuerdo",
+    "Algo de acuerdo",
+    "De acuerdo",
+    "Totalmente de acuerdo",
+  ],
+};
+
+export const yesNo = {
+  english: ["Yes", "No"],
+  spanish: ["Sí", "No"],
+};
+
+export const languages = {
+  english: [
+    "I have more than one native language",
+    "English",
+    "Spanish",
+    "Other",
+  ],
+  spanish: ["Tengo más de una lengua materna", "Inglés", "Español", "Otro"],
+};

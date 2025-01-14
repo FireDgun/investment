@@ -73,6 +73,20 @@ export const questions = {
     english: "Processing the information about the portfolio was: ",
     spanish: "El procesamiento de la información sobre la cartera fue: ",
   },
+  mustChooseSomewhatAgree: {
+    english:
+      "Please ignore this question and click on the option Somewhat agree. The aim of this question is to screen out random clicking and bots.",
+    spanish:
+      "Por favor, ignore esta pregunta y haga clic en la opción Algo de acuerdo. El objetivo de esta pregunta es filtrar los clics aleatorios y los bots.",
+  },
+  nativeLanguage: {
+    english: "What is your first language?",
+    spanish: "¿Cuál es tu lengua materna?",
+  },
+  fluentSpanish: {
+    english: "Do you have Spanish as a fluent language? ",
+    spanish: "¿Dominas el español como lengua fluida? ",
+  },
 };
 
 export const thankYouMessage = {

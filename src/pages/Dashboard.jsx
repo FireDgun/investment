@@ -59,6 +59,21 @@ export default function Dashboard() {
       width: 260,
     },
     {
+      field: "mustChooseSomewhatAgree",
+      headerName: "Must Choose Somewhat Agree",
+      width: 240,
+    },
+    {
+      field: "fluentSpanish",
+      headerName: "Fluent Spanish",
+      width: 240,
+    },
+    {
+      field: "nativeLanguage",
+      headerName: "Native Language",
+      width: 240,
+    },
+    {
       field: "isCorrectReadingAnswer1",
       headerName: "Is Correct Reading Answer 1",
       width: 240,
@@ -69,7 +84,9 @@ export default function Dashboard() {
       headerName: "Is Correct Reading Answer 2",
       width: 240,
     },
+
     { field: "readingAnswer2", headerName: "Reading Answer 2", width: 180 },
+
     ...Array.from({ length: 12 }, (_, i) => ({
       field: `riskFree${i + 1}`,
       headerName: `Risk Free ${i + 1}`,
@@ -95,10 +112,14 @@ export default function Dashboard() {
       "easeOfPronunciationIndex",
       "prideAsAmerican",
       "followingPerformanceIndex",
+      "mustChooseSomewhatAgree",
+      "fluentSpanish",
+      "nativeLanguage",
       "isCorrectReadingAnswer1",
       "readingAnswer1",
       "isCorrectReadingAnswer2",
       "readingAnswer2",
+
       ...Array.from({ length: 12 }, (_, i) => `riskFree${i + 1}`),
       ...Array.from({ length: 12 }, (_, i) => `index${i + 1}`),
     ];
