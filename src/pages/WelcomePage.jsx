@@ -13,13 +13,15 @@ export default function WelcomePage() {
   if (lan === "") return null;
 
   if (user._id === adminData.userId)
-    return <Navigate to={"/dashboard/?PROLIFIC_PID=" + user._id} />;
+    return <Navigate to={"/dashboard/?PROLIFIC_PID=" + user._id} replace />;
   return (
     <Paper sx={{ p: 3 }}>
       <Typography>{opening[lan]}</Typography>
       <Typography>{explanation[lan]}</Typography>
       <Button
-        onClick={() => nav("/readingQuestions/?PROLIFIC_PID=" + user._id)}
+        onClick={() =>
+          nav("/readingQuestions/?PROLIFIC_PID=" + user._id, { replace: true })
+        }
         variant="contained"
         sx={{ my: 3 }}
       >

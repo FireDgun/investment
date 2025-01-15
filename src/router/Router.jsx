@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import React from "react";
 import WelcomePage from "../pages/WelcomePage";
@@ -9,11 +9,12 @@ import InvestmentQuestionsWrapper from "../pages/InvestmentQuestionsWrapper";
 import Results from "../pages/Results";
 import PersonalQuestions from "../pages/PersonalQuestions";
 import ThankYou from "../pages/ThankYou";
-import { useLanguage } from "../providers/LanguageProvider";
 import Dashboard from "../pages/Dashboard";
 import InvestmentTrial from "../pages/InvestmentTrial";
-
+import useConfirmNavigation from "../hooks/useConfirmNavigation";
 export default function Router() {
+  useConfirmNavigation();
+
   return (
     <Routes>
       <Route path="/" element={<WelcomePage />} />

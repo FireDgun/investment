@@ -49,9 +49,11 @@ export default function ReadingQuestions() {
       isCorrectReadingAnswer2: isCorrect2,
     }));
     if (isCorrect1 && isCorrect2) {
-      nav("/investmentInstructions/?PROLIFIC_PID=" + user._id);
+      nav("/investmentInstructions/?PROLIFIC_PID=" + user._id, {
+        replace: true,
+      });
     } else {
-      nav("/thankYou/?PROLIFIC_PID=" + user._id);
+      nav("/thankYou/?PROLIFIC_PID=" + user._id, { replace: true });
     }
   };
   if (lan === "") return null;

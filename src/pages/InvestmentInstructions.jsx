@@ -129,7 +129,9 @@ export default function InvestmentInstructions() {
         <Typography>{underTheGraphEnd[lan]}</Typography>
         <Button
           onClick={() =>
-            nav("/investmentQuestionTrial/?PROLIFIC_PID=" + user._id)
+            nav("/investmentQuestionTrial/?PROLIFIC_PID=" + user._id, {
+              replace: true,
+            })
           }
           variant="contained"
           sx={{ my: 3 }}

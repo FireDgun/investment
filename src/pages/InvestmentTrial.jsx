@@ -58,7 +58,9 @@ export default function InvestmentTrial() {
           <TrialResults
             indexPercent={data.index}
             handleContinue={() => {
-              navigate("/investmentQuestion/?PROLIFIC_PID=" + user._id);
+              navigate("/investmentQuestion/?PROLIFIC_PID=" + user._id, {
+                replace: true,
+              });
             }}
             indexUpPercent={1.46}
             amountOfMoney={50}

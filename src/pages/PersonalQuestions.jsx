@@ -59,7 +59,7 @@ export default function PersonalQuestions() {
   // Handle form submission
   const handleSubmit = () => {
     setUser((prev) => ({ ...prev, ...formData }));
-    nav("/thankYou/?PROLIFIC_PID=" + user._id);
+    nav("/thankYou/?PROLIFIC_PID=" + user._id, { replace: true });
     // Further processing can be done here
   };
   if (lan === "" && type === "") return null;
@@ -77,7 +77,6 @@ export default function PersonalQuestions() {
           value={formData.processingQuestion}
           onChange={handleChange("processingQuestion")}
         >
-          {/* Generate radio buttons for options 1 to 7 */}
           {[...Array(7)].map((_, index) => (
             <FormControlLabel
               key={index}
@@ -85,18 +84,32 @@ export default function PersonalQuestions() {
               control={<Radio />}
               labelPlacement="bottom"
               label={
-                index +
-                1 +
-                " " +
-                (index === 0 ? easy[lan] : "") +
-                (index === 6 ? difficult[lan] : "")
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    width: "100%",
+                  }}
+                >
+                  {index + 1}
+                  <br />
+                  {index === 0 ? (
+                    <span style={{ display: "block" }}>{easy[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                  {index === 6 ? (
+                    <span style={{ display: "block" }}>{difficult[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                </span>
               }
             />
           ))}
         </RadioGroup>
       </FormControl>
 
-      {/* Stock Market Experience Question */}
       <FormControl component="fieldset" sx={{ mt: 2 }}>
         <FormLabel component="legend">
           {questions.stockMarketExperience[lan]}
@@ -114,18 +127,32 @@ export default function PersonalQuestions() {
               control={<Radio />}
               labelPlacement="bottom"
               label={
-                index +
-                1 +
-                " " +
-                (index === 0 ? never[lan] : "") +
-                (index === 4 ? allTheTime[lan] : "")
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    width: "100%",
+                  }}
+                >
+                  {index + 1}
+                  <br />
+                  {index === 0 ? (
+                    <span style={{ display: "block" }}>{never[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                  {index === 4 ? (
+                    <span style={{ display: "block" }}>{allTheTime[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                </span>
               }
             />
           ))}
         </RadioGroup>
       </FormControl>
 
-      {/* Pride as an American Question */}
       <FormControl component="fieldset" sx={{ mt: 2 }}>
         <FormLabel component="legend">
           {questions.prideAsAmerican[lan]}
@@ -136,7 +163,6 @@ export default function PersonalQuestions() {
           value={formData.prideAsAmerican}
           onChange={handleChange("prideAsAmerican")}
         >
-          {/* Generate radio buttons for options 1 to 7 */}
           {[...Array(7)].map((_, index) => (
             <FormControlLabel
               key={index}
@@ -144,18 +170,32 @@ export default function PersonalQuestions() {
               control={<Radio />}
               labelPlacement="bottom"
               label={
-                index +
-                1 +
-                " " +
-                (index === 0 ? notAtAll[lan] : "") +
-                (index === 6 ? veryMuch[lan] : "")
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    width: "100%",
+                  }}
+                >
+                  {index + 1}
+                  <br />
+                  {index === 0 ? (
+                    <span style={{ display: "block" }}>{notAtAll[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                  {index === 6 ? (
+                    <span style={{ display: "block" }}>{veryMuch[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                </span>
               }
             />
           ))}
         </RadioGroup>
       </FormControl>
 
-      {/* Familiarity with S&P 500 Question */}
       <FormControl component="fieldset">
         <FormLabel component="legend">
           {questions["familiarityWith" + type][lan]}
@@ -173,18 +213,32 @@ export default function PersonalQuestions() {
               control={<Radio />}
               labelPlacement="bottom"
               label={
-                index +
-                1 +
-                " " +
-                (index === 0 ? notAtAll[lan] : "") +
-                (index === 6 ? veryMuch[lan] : "")
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    width: "100%",
+                  }}
+                >
+                  {index + 1}
+                  <br />
+                  {index === 0 ? (
+                    <span style={{ display: "block" }}>{notAtAll[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                  {index === 6 ? (
+                    <span style={{ display: "block" }}>{veryMuch[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                </span>
               }
             />
           ))}
         </RadioGroup>
       </FormControl>
 
-      {/* Ease of Pronunciation S&P 500 Question */}
       <FormControl component="fieldset" sx={{ mt: 2 }}>
         <FormLabel component="legend">
           {questions["easeOfPronunciation" + type][lan]}
@@ -202,18 +256,34 @@ export default function PersonalQuestions() {
               control={<Radio />}
               labelPlacement="bottom"
               label={
-                index +
-                1 +
-                " " +
-                (index === 0 ? veryDifficult[lan] : "") +
-                (index === 6 ? veryEasy[lan] : "")
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    width: "100%",
+                  }}
+                >
+                  {index + 1}
+                  <br />
+                  {index === 0 ? (
+                    <span style={{ display: "block" }}>
+                      {veryDifficult[lan]}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                  {index === 6 ? (
+                    <span style={{ display: "block" }}>{veryEasy[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                </span>
               }
             />
           ))}
         </RadioGroup>
       </FormControl>
 
-      {/* Following S&P 500 Performance Question */}
       <FormControl component="fieldset" sx={{ mt: 2 }}>
         <FormLabel component="legend">
           {questions["followingPerformance" + type][lan]}
@@ -231,11 +301,28 @@ export default function PersonalQuestions() {
               control={<Radio />}
               labelPlacement="bottom"
               label={
-                index +
-                1 +
-                " " +
-                (index === 0 ? notAtAll[lan] : "") +
-                (index === 6 ? continuously[lan] : "")
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    width: "100%",
+                  }}
+                >
+                  {index + 1}
+                  <br />
+                  {index === 0 ? (
+                    <span style={{ display: "block" }}>{notAtAll[lan]}</span>
+                  ) : (
+                    ""
+                  )}
+                  {index === 6 ? (
+                    <span style={{ display: "block" }}>
+                      {continuously[lan]}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </span>
               }
             />
           ))}
@@ -258,7 +345,19 @@ export default function PersonalQuestions() {
               value={index + 1}
               control={<Radio />}
               labelPlacement="bottom"
-              label={index + 1 + " " + opinion}
+              label={
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    width: "100%",
+                  }}
+                >
+                  {index + 1}
+                  <br />
+                  {opinion}
+                </span>
+              }
             />
           ))}
         </RadioGroup>
@@ -280,7 +379,19 @@ export default function PersonalQuestions() {
               value={index + 1}
               control={<Radio />}
               labelPlacement="bottom"
-              label={index + 1 + " " + option}
+              label={
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    width: "100%",
+                  }}
+                >
+                  {index + 1}
+                  <br />
+                  {option}
+                </span>
+              }
             />
           ))}
         </RadioGroup>
@@ -302,7 +413,19 @@ export default function PersonalQuestions() {
               value={index + 1}
               control={<Radio />}
               labelPlacement="bottom"
-              label={index + 1 + " " + option}
+              label={
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    width: "100%",
+                  }}
+                >
+                  {index + 1}
+                  <br />
+                  {option}
+                </span>
+              }
             />
           ))}
         </RadioGroup>

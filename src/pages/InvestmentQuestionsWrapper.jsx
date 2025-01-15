@@ -50,7 +50,7 @@ export default function InvestmentQuestionsWrapper() {
       });
     });
     setUser((prev) => ({ ...prev, ...obj }));
-    navigate("/moreQuestions/?PROLIFIC_PID=" + user._id);
+    navigate("/moreQuestions/?PROLIFIC_PID=" + user._id, { replace: true });
   };
   if (lan === "") return null;
 

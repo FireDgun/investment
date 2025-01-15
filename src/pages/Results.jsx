@@ -9,7 +9,7 @@ export default function Results() {
   const { user } = useLanguage();
   const { lan } = user;
   const handleContinue = () => {
-    navigate("/moreQuestions/?PROLIFIC_PID=" + user._id);
+    navigate("/moreQuestions/?PROLIFIC_PID=" + user._id, { replace: true });
   };
   if (lan === "") return null;
 
