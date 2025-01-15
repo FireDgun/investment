@@ -1,6 +1,6 @@
 import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { db } from "../firebase-config";
 
 const LanguageContext = createContext();
@@ -45,6 +45,7 @@ export const LanguageProvider = ({ children }) => {
     easeOfPronunciationIndex: "",
     followingPerformanceIndex: "",
   });
+  const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
   const countUsers = async () => {
@@ -54,6 +55,7 @@ export const LanguageProvider = ({ children }) => {
   // Function to load user data
   const loadUserData = async () => {
     const userId = searchParams.get("PROLIFIC_PID");
+
     const userDocRef = doc(db, "users", userId);
     const docSnap = await getDoc(userDocRef);
 
@@ -76,8 +78,10 @@ export const LanguageProvider = ({ children }) => {
 
         _id: userId,
       });
+
       console.log("New user created with default values and _id included.");
     }
+    navigate("/?PROLIFIC_PID=" + userId, { replace: true });
   };
 
   useEffect(() => {

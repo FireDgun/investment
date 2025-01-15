@@ -1,18 +1,9 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function useConfirmNavigation() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [searchParams] = useSearchParams();
-
-  const userId = searchParams.get("PROLIFIC_PID");
-
-  useEffect(() => {
-    if (userId) {
-      navigate("/?PROLIFIC_PID=" + userId, { replace: true });
-    }
-  }, [userId]);
 
   useEffect(() => {
     // Function to confirm navigation
