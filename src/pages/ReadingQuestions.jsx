@@ -20,7 +20,7 @@ import { useLanguage } from "../providers/LanguageProvider";
 import { useNavigate } from "react-router-dom";
 import { approveAndContinue } from "../content/generalWords";
 
-export default function ReadingQuestions() {
+export default function ReadingQuestions({ handleNavigation }) {
   const [selectedAnswer1, setSelectedAnswer1] = useState("");
   const [selectedAnswer2, setSelectedAnswer2] = useState("");
   const { user, setUser } = useLanguage();
@@ -53,7 +53,10 @@ export default function ReadingQuestions() {
         replace: true,
       });
     } else {
-      nav("/thankYou/?PROLIFIC_PID=" + user._id, { replace: true });
+      window.removeEventListener("beforeunload", handleNavigation);
+
+      window.location =
+        "https://app.prolific.com/submissions/complete?cc=C1338ELP";
     }
   };
   if (lan === "") return null;

@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import { surveyIntroduction, questions } from "../content/results"; // Update the path to your content objects
 import { useLanguage } from "../providers/LanguageProvider"; // Adjust the import path as necessary
-import { useNavigate } from "react-router-dom";
 import {
   allTheTime,
   approveAndContinue,
@@ -32,10 +31,9 @@ import {
   yesNo,
 } from "../content/generalWords";
 
-export default function PersonalQuestions() {
+export default function PersonalQuestions({ handleNavigation }) {
   const { user, setUser } = useLanguage();
   const { lan, type } = user;
-  const nav = useNavigate();
   // State setup for form data
   const [formData, setFormData] = useState({
     gender: "",
@@ -59,7 +57,11 @@ export default function PersonalQuestions() {
   // Handle form submission
   const handleSubmit = () => {
     setUser((prev) => ({ ...prev, ...formData }));
-    nav("/thankYou/?PROLIFIC_PID=" + user._id, { replace: true });
+    window.removeEventListener("beforeunload", handleNavigation);
+
+    window.location =
+      "https://app.prolific.com/submissions/complete?cc=C1HBF9IF";
+    //nav("/thankYou/?PROLIFIC_PID=" + user._id, { replace: true });
     // Further processing can be done here
   };
   if (lan === "" && type === "") return null;

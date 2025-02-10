@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { explanation, opening } from "../content/mainPage";
 import { useLanguage } from "../providers/LanguageProvider";
 import { Button, Paper, Typography } from "@mui/material";
 import { next } from "../content/generalWords";
 import { Navigate, useNavigate } from "react-router-dom";
 import { adminData } from "../adminConfig";
+import WriteDogInEnglish from "./WriteDogInEnglish";
 
 export default function WelcomePage() {
+  const [isAskDogOpen, setIsAskDogOpen] = useState(true);
   const { user } = useLanguage();
   const { lan } = user;
   const nav = useNavigate();
@@ -16,17 +18,25 @@ export default function WelcomePage() {
     return <Navigate to={"/dashboard/?PROLIFIC_PID=" + user._id} replace />;
   return (
     <Paper sx={{ p: 3 }}>
-      <Typography>{opening[lan]}</Typography>
-      <Typography>{explanation[lan]}</Typography>
-      <Button
-        onClick={() =>
-          nav("/readingQuestions/?PROLIFIC_PID=" + user._id, { replace: true })
-        }
-        variant="contained"
-        sx={{ my: 3 }}
-      >
-        {next[lan]}
-      </Button>
+      {isAskDogOpen ? (
+        <WriteDogInEnglish setIsAskDogOpen={setIsAskDogOpen} />
+      ) : (
+        <>
+          <Typography>{opening[lan]}</Typography>
+          <Typography>{explanation[lan]}</Typography>
+          <Button
+            onClick={() =>
+              nav("/readingQuestions/?PROLIFIC_PID=" + user._id, {
+                replace: true,
+              })
+            }
+            variant="contained"
+            sx={{ my: 3 }}
+          >
+            {next[lan]}
+          </Button>
+        </>
+      )}
     </Paper>
   );
 }
