@@ -19,8 +19,7 @@ function WriteDogInEnglish({ setIsAskDogOpen }) {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       <Typography variant="body1">
-        Para asegurarnos de que entiendes español, por favor escribe la palabra
-        "dog" (en inglés).
+        Traducir la palabra "perro" al inglés.
       </Typography>
 
       <TextField
