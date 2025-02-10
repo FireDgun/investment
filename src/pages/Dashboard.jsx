@@ -28,6 +28,16 @@ export default function Dashboard() {
 
   const columns = [
     { field: "_id", headerName: "ID", width: 150 },
+    {
+      field: "startTime",
+      headerName: "Start Time",
+      width: 180,
+    },
+    {
+      field: "endTime",
+      headerName: "End Time",
+      width: 180,
+    },
     { field: "type", headerName: "Type", width: 110 },
     { field: "gender", headerName: "Gender", width: 110 },
     { field: "age", headerName: "Age", width: 110 },
@@ -112,6 +122,8 @@ export default function Dashboard() {
   const exportToExcel = () => {
     const columnOrder = [
       "_id",
+      "startTime",
+      "endTime",
       "type",
       "gender",
       "age",
@@ -131,6 +143,7 @@ export default function Dashboard() {
       "readingAnswer2",
       "writeDogInEnglish",
       "iDontSpeakSpanish",
+
       ...Array.from({ length: 12 }, (_, i) => `riskFree${i + 1}`),
       ...Array.from({ length: 12 }, (_, i) => `index${i + 1}`),
     ];

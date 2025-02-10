@@ -56,7 +56,12 @@ export default function PersonalQuestions({ handleNavigation }) {
 
   // Handle form submission
   const handleSubmit = () => {
-    setUser((prev) => ({ ...prev, ...formData }));
+    setUser((prev) => ({
+      ...prev,
+      ...formData,
+      endTime:
+        new Date().toLocaleDateString() + "|" + new Date().toLocaleTimeString(),
+    }));
     window.removeEventListener("beforeunload", handleNavigation);
 
     window.location =
