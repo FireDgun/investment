@@ -16,7 +16,10 @@ export default function Router() {
 
   return (
     <Routes>
-      <Route path="/" element={<WelcomePage />} />
+      <Route
+        path="/"
+        element={<WelcomePage handleNavigation={handleNavigation} />}
+      />
       <Route
         path="/readingQuestions"
         element={<ReadingQuestions handleNavigation={handleNavigation} />}

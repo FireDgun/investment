@@ -91,6 +91,11 @@ export default function Dashboard() {
       headerName: "Write dog in English",
       width: 180,
     },
+    {
+      field: "iDontSpeakSpanish",
+      headerName: "I Dont Speak Spanish",
+      width: 180,
+    },
 
     ...Array.from({ length: 12 }, (_, i) => ({
       field: `riskFree${i + 1}`,
@@ -125,6 +130,7 @@ export default function Dashboard() {
       "isCorrectReadingAnswer2",
       "readingAnswer2",
       "writeDogInEnglish",
+      "iDontSpeakSpanish",
       ...Array.from({ length: 12 }, (_, i) => `riskFree${i + 1}`),
       ...Array.from({ length: 12 }, (_, i) => `index${i + 1}`),
     ];

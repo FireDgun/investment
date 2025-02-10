@@ -7,7 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { adminData } from "../adminConfig";
 import WriteDogInEnglish from "./WriteDogInEnglish";
 
-export default function WelcomePage() {
+export default function WelcomePage({ handleNavigation }) {
   const [isAskDogOpen, setIsAskDogOpen] = useState(true);
   const { user } = useLanguage();
   const { lan } = user;
@@ -19,7 +19,10 @@ export default function WelcomePage() {
   return (
     <Paper sx={{ p: 3 }}>
       {isAskDogOpen ? (
-        <WriteDogInEnglish setIsAskDogOpen={setIsAskDogOpen} />
+        <WriteDogInEnglish
+          setIsAskDogOpen={setIsAskDogOpen}
+          handleNavigation={handleNavigation}
+        />
       ) : (
         <>
           <Typography>{opening[lan]}</Typography>
