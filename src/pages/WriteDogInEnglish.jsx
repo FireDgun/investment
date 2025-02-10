@@ -23,7 +23,7 @@ function WriteDogInEnglish({ setIsAskDogOpen, handleNavigation }) {
       writeDogInEnglish: inputValue,
       iDontSpeakSpanish, // store checkbox state as well
     }));
-    if (iDontSpeakSpanish) {
+    if (iDontSpeakSpanish || inputValue.trim() !== "dog") {
       window.removeEventListener("beforeunload", handleNavigation);
 
       window.location =
