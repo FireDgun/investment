@@ -8,7 +8,7 @@ import { adminData } from "../adminConfig";
 import WriteDogInEnglish from "./WriteDogInEnglish";
 
 export default function WelcomePage({ handleNavigation }) {
-  const [isAskDogOpen, setIsAskDogOpen] = useState(true);
+  const [isAskDogOpen, setIsAskDogOpen] = useState(false);
   const { user } = useLanguage();
   const { lan } = user;
   const nav = useNavigate();
